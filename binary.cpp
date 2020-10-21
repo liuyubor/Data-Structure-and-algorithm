@@ -13,15 +13,19 @@ class binary
 private:
     bitnode *bt;
     void creat(bitnode *&t);
-    int countleaf(bitnode *t);
-    int counthigh(bitnode *t);
+    int count_leaf(bitnode *t);
+    int count_high(bitnode *t);
     bitnode *search(bitnode *t, char x);
+    void exchange();
+    int count_node();
 
 public:
     void recreat();
-    int recountleaf();
-    int recounthigh();
+    int recount_leaf();
+    int recount_high();
     bitnode *research(char x);
+    void reexchange();
+    int recount_ndoe();
 };
 
 void binary::creat(bitnode *&t)
@@ -46,14 +50,14 @@ void binary::recreat()
     bt = t;
 }
 
-int binary::countleaf(bitnode *t)
+int binary::count_leaf(bitnode *t)
 {
     if (t = NULL)
         return 0;
     else
     {
-        int m = countleaf(t->lchild);
-        int n = countleaf(t->rchild);
+        int m = count_leaf(t->lchild);
+        int n = count_leaf(t->rchild);
         if (m + n == 0)
             return 0;
         else
@@ -62,19 +66,19 @@ int binary::countleaf(bitnode *t)
         }
     }
 }
-int binary::recountleaf()
+int binary::recount_leaf()
 {
     bitnode *t = bt;
-    return countleaf(t);
+    return count_leaf(t);
 }
-int binary::counthigh(bitnode *t)
+int binary::count_high(bitnode *t)
 {
     if (t = NULL)
         return 0;
     else
     {
-        int m = 1 + counthigh(t->lchild);
-        int n = 1 + counthigh(t->rchild);
+        int m = 1 + count_high(t->lchild);
+        int n = 1 + count_high(t->rchild);
         if (m >= n)
             return m;
         else
@@ -83,10 +87,10 @@ int binary::counthigh(bitnode *t)
     }
 }
 
-int binary::recounthigh()
+int binary::recount_high()
 {
     bitnode *t = bt;
-    return counthigh(t);
+    return count_high(t);
 }
 
 bitnode *binary::search(bitnode *t, char x)
@@ -109,13 +113,24 @@ bitnode *binary::research(char x)
     return search(t, x);
 }
 
+void binary::exchange()
+{
+
+}
+
+int binary::count_node()
+{
+    
+}
+
+
 int main()
 {
     binary bt;
     char x;
     bt.recreat();
-    cout << bt.recountleaf() << endl;
-    cout << bt.recounthigh() << endl;
+    cout << bt.recount_leaf() << endl;
+    cout << bt.recount_high() << endl;
     cin >> x;
     cout << bt.research(x) << endl;
 }
