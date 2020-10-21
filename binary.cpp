@@ -52,7 +52,7 @@ void binary::recreat()
 
 int binary::count_leaf(bitnode *t)
 {
-    if (t = NULL)
+    if (t == NULL)
         return 0;
     else
     {
@@ -73,7 +73,7 @@ int binary::recount_leaf()
 }
 int binary::count_high(bitnode *t)
 {
-    if (t = NULL)
+    if (t == NULL)
         return 0;
     else
     {
