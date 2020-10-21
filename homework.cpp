@@ -1,18 +1,17 @@
 #include <iostream>
 using namespace std;
 
-
-typedef int ELemtype;
-struct Node
+typedef struct Node
 {
-    ELemtype data;
+    int data;
     Node *next;
-};
+}Node;
 
 class LinkList
 {
 private:
-    Node *Head:
+    Node *Head;
+
 public:
     LinkList(/* args */);
     ~LinkList();
@@ -20,18 +19,18 @@ public:
     void Print(); //显示链表中的值
     void EvenNum(); //计算链表中偶数的节点个数
     void DeleteSameNode(); //删除链表中值相同的多余节点
-    void Delete(Elemtype x); //删除值等于X的所有节点，若成功返回1，否则返回0
+    void Delete(int x); //删除值等于X的所有节点，若成功返回1，否则返回0
 };
 
 LinkList::LinkList(/* args */)
 {
-    Head= new LNode;
+    Head= new Node;
     Head->next = NULL;
 }
 
 LinkList::~LinkList()
 {
-    LNode *p = Head;
+    Node *p = Head;
     while(p){
         Head = Head->next;
         delete p;
@@ -41,10 +40,10 @@ LinkList::~LinkList()
 
 void LinkList::CreatList(int n)
 {
-    LNode *rear = Head , *s;
+    Node *rear = Head , *s;
     cout<<"请依次输入"<<n<<"个数据元素"<<endl;
     for(i=0,i<n,i++){
-        s = new LNode;
+        s = new Node;
         cin >> s->data;
         rear->next = s;
         rear = s;
@@ -54,7 +53,7 @@ void LinkList::CreatList(int n)
 
 void LinkList::Print()
 {
-    Lnode *p = Head->next;
+    Node *p = Head->next;
     while (p){
         cout << p->data<<" "<<endl;
         p = p->next;
@@ -64,7 +63,7 @@ void LinkList::Print()
 
 void LinkList::EvenNum()
 {
-    Lnode *p = Head->next;
+    Node *p = Head->next;
     int evennum = 0;
     while(p){
         if (p->data%2 == 0){
@@ -77,7 +76,7 @@ void LinkList::EvenNum()
 
 void LinkList::DeleteSameNode()
 {
-    Lnode *p = Head;
+    Node *p = Head;
     if (p == Head && p->next == NULL) //判断空表或者只有一个节点
     return;
     p = p->next;
@@ -99,13 +98,13 @@ void LinkList::DeleteSameNode()
 
 }
 
-void LinkList::Delete(Elemtype x)
+int LinkList::Delete(int x)
 {
-    Lnode *p = Head, *pr;
+    Node *p = Head, *pr;
     int i = 0;
     pr = p;
-    p = p->next
-    while (p! = NULL){
+    p = p->next;
+    while (p != NULL){
         if (p->data == x){
             pr->next = p->next;
             delete p;
