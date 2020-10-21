@@ -24,10 +24,10 @@ sqstack::sqstack(){
     stacksize =initstacksize;
 }
 
-sqstack::push(){
+void sqstack::push(int e){
     if (top-base == stacksize)
     {
-        int *basel = new [stacksize + stackincrement];
+        int *basel = new int[stacksize + stackincrement];
         for (int i = 0; i < stacksize; i++)
         {
             basel[1]=base[i];
@@ -40,7 +40,7 @@ sqstack::push(){
     *top++ = e;
 }
 
-sqstack::pop(int &e){
+void sqstack::pop(int &e){
     if (top == base)
     {
         return;
@@ -49,26 +49,22 @@ sqstack::pop(int &e){
 
 }
 
-sqstack::emptystack(){
+int sqstack::emptystack(){
     if (top == base)return 1;
     else return 0;
 }
 
-sqstack::print(){
 
-}
-
-sqstack::convert(){
-    int e;
-    while (n)
-    {
-        push(n%8);
-        n=n/d;
-    }
-    while (!stackempty())
-    {
-        pop(e);
-        cout<<e<<"\t";
-    }
-    cout<<endl;
-}
+// void sqstack::convert(int n){
+//     while (n)
+//     {
+//         push(n%8);
+//         n=n/d;
+//     }
+//     while (!emptystack())
+//     {
+//         pop(e);
+//         cout<<e<<"\t";
+//     }
+//     cout<<endl;
+// }

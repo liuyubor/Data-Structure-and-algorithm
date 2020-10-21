@@ -4,7 +4,7 @@ using namespace std;
 typedef struct pnode //typedef [struct (pnode)] pndoe  括号内叫什么不重要
 {
     int coef; //系数
-    int exp; //指数
+    int exp;  //指数
     pnode *next;
 } pnode;
 
@@ -19,7 +19,7 @@ public:
         head = new pnode;
         head->next = NULL;
     }
-    void creat(int n); 
+    void creat(int n);
     void print();
     int comp(int a, int b);
     void addpoly(poly &ha, poly hb);
@@ -27,14 +27,14 @@ public:
 
 void poly::creat(int n) //输入n项式
 {
-    pnode *s,*rear;
+    pnode *s, *rear;
     s = new pnode;
     rear = head;
     for (int i = 0; i < n; i++)
     {
         cin >> s->coef >> s->exp; //输入系数和指数
-        rear = head; //rear始终指向表尾
-        rear->next = s; 
+        rear = head;              //rear始终指向表尾
+        rear->next = s;
         rear = s;
     }
     rear->next = NULL;

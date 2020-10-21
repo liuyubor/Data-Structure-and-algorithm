@@ -133,4 +133,5 @@ int main()
     cout << bt.recount_high() << endl;
     cin >> x;
     cout << bt.research(x) << endl;
+    return 0;
 }
