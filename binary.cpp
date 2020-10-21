@@ -12,12 +12,12 @@ class binary
 {
 private:
     bitnode *bt;
-    void creat(bitnode *&t);
-    int count_leaf(bitnode *t);
-    int count_high(bitnode *t);
-    bitnode *search(bitnode *t, char x);
-    void exchange();
-    int count_node();
+    void creat(bitnode *&t);//创建一个二叉树   
+    int count_leaf(bitnode *t);//计算叶子节点的个数
+    int count_high(bitnode *t);//计算深度
+    bitnode *search(bitnode *t, char x);//在二叉树查找输入值
+    void exchange();//交换左右节点
+    int count_node();//计算节点的个数
 
 public:
     void recreat();
@@ -120,7 +120,7 @@ void binary::exchange()
 
 int binary::count_node()
 {
-    
+
 }
 
 
