@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-typedef struct pnode //typedef [struct (pnode)] pndoe  括号内叫什么不重要
+typedef struct pnode 
 {
     int coef; //系数
     int exp;  //指数
