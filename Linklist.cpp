@@ -1,49 +1,48 @@
 #include <iostream>
 using namespace std;
 
-typedef struct Node
+typedef struct ndoe
 {
     int data;
-    Node *next;
-}Node;
+    ndoe *next;
+}ndoe;
 
-class LinkList
+class linklist
 {
 private:
-    Node *Head;
+    ndoe *head;
 
 public:
-    LinkList(/* args */);
-    ~LinkList();
-    void CreatList(int n); //正序创建n个元素的链表(尾插法)
+    linklist();//创建空表
+    void creat(int n); //正序创建n个元素的链表(尾插法)
     void Print(); //显示链表中的值
     void EvenNum(); //计算链表中偶数的节点个数
     void DeleteSameNode(); //删除链表中值相同的多余节点
     void Delete(int x); //删除值等于X的所有节点，若成功返回1，否则返回0
 };
 
-LinkList::LinkList(/* args */)
+linklist::linklist()
 {
-    Head= new Node;
-    Head->next = NULL;
+    head= new ndoe;
+    head->next = NULL;
 }
 
-LinkList::~LinkList()
+linklist::~linklist()
 {
-    Node *p = Head;
+    ndoe *p = head;
     while(p){
-        Head = Head->next;
+        head = head->next;
         delete p;
-        p = Head;
+        p = head;
     }
 }
 
-void LinkList::CreatList(int n)
+void linklist::creat(int n)
 {
-    Node *rear = Head , *s;
+    ndoe *rear = head , *s;
     cout<<"请依次输入"<<n<<"个数据元素"<<endl;
     for(i=0,i<n,i++){
-        s = new Node;
+        s = new ndoe;
         cin >> s->data;
         rear->next = s;
         rear = s;
@@ -51,9 +50,9 @@ void LinkList::CreatList(int n)
     s->next = NULL;
 }
 
-void LinkList::Print()
+void linklist::Print()
 {
-    Node *p = Head->next;
+    ndoe *p = head->next;
     while (p){
         cout << p->data<<" "<<endl;
         p = p->next;
@@ -61,9 +60,9 @@ void LinkList::Print()
     
 }
 
-void LinkList::EvenNum()
+void linklist::EvenNum()
 {
-    Node *p = Head->next;
+    ndoe *p = head->next;
     int evennum = 0;
     while(p){
         if (p->data%2 == 0){
@@ -74,10 +73,10 @@ void LinkList::EvenNum()
     cout<<evennum;
 }
 
-void LinkList::DeleteSameNode()
+void linklist::DeleteSameNode()
 {
-    Node *p = Head;
-    if (p == Head && p->next == NULL) //判断空表或者只有一个节点
+    ndoe *p = head;
+    if (p == head && p->next == NULL) //判断空表或者只有一个节点
     return;
     p = p->next;
     while (p != NULL){
@@ -98,9 +97,9 @@ void LinkList::DeleteSameNode()
 
 }
 
-int LinkList::Delete(int x)
+int linklist::Delete(int x)
 {
-    Node *p = Head, *pr;
+    ndoe *p = head, *pr;
     int i = 0;
     pr = p;
     p = p->next;
